@@ -66,7 +66,7 @@ namespace מוחקונטר
                 if (!Directory.Exists(path)) //במידה והתיקיה לא קיימת - לא מתבצעת סריקה
                     return;
                 Console.WriteLine(path);
-                Console.Title = "מוחקונטר-מהיר     " + all;
+                Console.Title = "מוחקונטר     " + all;
                 string[] dirs = Directory.GetDirectories(path);
                 if (dirs.Length > 500 && !path.ToLower().Equals(drive)) return; //השורה הזאת מונעת מהתוכנה לסרוק תיקייה עם יותר מ-500 תיקיות
                 string[] files = Directory.GetFiles(path);
