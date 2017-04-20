@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.IO;
 using System.Threading;
 
@@ -13,17 +9,14 @@ using System.Threading;
          # #     #      #  #  #  # #   #   #      #
          # ####### ######  #  # #  #   #   # ######
                               #
-
-    הגרסה הזו מתאימה לשימוש בכל תיקייה או כונן שתבחרו, אך היא
-    Z:\ כוללת בתוכה מקרים פרטיים הנוגעים למטרתה המקורית- להשליט סדר בכונן
-    !מוחעחעחע
+    מחפש קונטר בכל כונן או תיקייה שתבחרו ואז מוחק אותו
 */
 
 namespace מוחקונטר
 {
     class Program
     {
-        static int c, all = 0; //סופרים את מספר התכנים שנמצאו, אחד לסריקה הנוכחית ואחד לכל הסריקות
+        static uint c, all = 0; //סופרים את מספר התכנים שנמצאו, אחד לסריקה הנוכחית ואחד לכל הסריקות
         static string drive; //שם הכונן
 
         static void DeletDir(string path) //path פעולה שמוחקת את התיקיה בכתובת
@@ -81,7 +74,7 @@ namespace מוחקונטר
                 int counterPathsFound = 0; //סופר "ראיות" שנמצאות בתוך תיקייה כדי לבדוק האם היא מכילה קונטר
                 foreach (string dir in dirs) //סריקת התיקיות
                 {
-                    if ((dir.ToLower().IndexOf("counter-strike") != -1 || dir.ToLower().IndexOf("counter strike") != -1 || dir.IndexOf("קונטר") != -1) && !dir.Equals(@"Z:\1.3.1 מוחקונטר")) // Z:\בדיקה - האם לתיקייה יש שם שקשור לקונטר. כולל מקרה פרטי לכונן
+                    if (dir.ToLower().IndexOf("counter-strike") != -1 || dir.ToLower().IndexOf("counter strike") != -1 || dir.IndexOf("קונטר") != -1) //בדיקה - האם לתיקייה יש שם שקשור לקונטר
                     {
                         DeletDir(dir);
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -95,7 +88,7 @@ namespace מוחקונטר
                 {
                     if (file.ToLower().IndexOf("hl.exe") != -1 || file.ToLower().IndexOf("steam_api.dll") != -1 || file.ToLower().IndexOf("hlds.exe") != -1 || file.ToLower().IndexOf("hltv.exe") != -1 || file.ToLower().IndexOf("hlds.exe") != -1)
                         counterPathsFound++;
-                    if ((file.ToLower().IndexOf("counter-strike") != -1 || file.ToLower().IndexOf("counter strike") != -1 || file.IndexOf("קונטר") != -1) && file.IndexOf(@"Z:\1.3.1 מוחקונטר") == -1) // Z:\בדיקה - האם לקובץ יש שם שקשור לקונטר. כולל מקרה פרטי לכונן
+                    if (file.ToLower().IndexOf("counter-strike") != -1 || file.ToLower().IndexOf("counter strike") != -1 || file.IndexOf("קונטר") != -1) //בדיקה - האם לקובץ יש שם שקשור לקונטר
                     {
                         File.Delete(file); c++; all++;
                         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -122,14 +115,14 @@ namespace מוחקונטר
         static void Main(string[] args) //פעולה ראשית, הקוד מתחיל כאן
         {
             //args[0]-הכתובת שאנו רוצים לסרוק מוגדרת כ
-            Console.Title = "מוחקונטר-מהיר";
+            Console.Title = "מוחקונטר";
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("    ###### #    ##    ## ## ##### ##### ##  # ##");
             Console.WriteLine("         # #   # #     #  #     # #   #  #  #   #");
             Console.WriteLine("         # #     #     #  #  #  # #   #  # #    #");
             Console.WriteLine("         # #     #     #  #  #  # #   #  #      #");
-            Console.WriteLine("1.3.2    # ####### #####  #  # #  #   #  # ######");
+            Console.WriteLine("1.3.3    # ####### #####  #  # #  #   #  # ######");
             Console.WriteLine("By L54                       #");
             Thread.Sleep(500);
             Console.ResetColor();
