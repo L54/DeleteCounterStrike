@@ -71,7 +71,7 @@ namespace מוחקונטר
                 if (dirs.Length > 500 && !path.ToLower().Equals(drive)) return; //השורה הזאת מונעת מהתוכנה לסרוק תיקייה עם יותר מ-500 תיקיות
                 string[] files = Directory.GetFiles(path);
                 if (files.Length > 500 && !path.ToLower().Equals(drive)) return; //השורה הזאת מונעת מהתוכנה לסרוק תיקייה עם יותר מ-500 קבצים
-                int counterPathsFound = 0; //סופר "ראיות" שנמצאות בתוך תיקייה כדי לבדוק האם היא מכילה קונטר
+                uint counterPathsFound = 0; //סופר "ראיות" שנמצאות בתוך תיקייה כדי לבדוק האם היא מכילה קונטר
                 foreach (string dir in dirs) //סריקת התיקיות
                 {
                     if (dir.ToLower().IndexOf("counter-strike") != -1 || dir.ToLower().IndexOf("counter strike") != -1 || dir.IndexOf("קונטר") != -1) //בדיקה - האם לתיקייה יש שם שקשור לקונטר
