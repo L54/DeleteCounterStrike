@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Threading;
 
@@ -74,12 +74,7 @@ namespace מוחקונטר
                 foreach (string dir in dirs) //סריקת התיקיות
                 {
                     if (dir.ToLower().IndexOf("counter-strike") != -1 || dir.ToLower().IndexOf("counter strike") != -1 || dir.IndexOf("קונטר") != -1) //בדיקה - האם לתיקייה יש שם שקשור לקונטר
-                    {
                         DeletDir(dir);
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("Directory " + dir + " was deleted.");
-                        Console.ResetColor();
-                    }
                     if (dir.ToLower().IndexOf("valve") != -1 || dir.ToLower().IndexOf("cstrike") != -1 || dir.ToLower().IndexOf("config") != -1)
                         counterPathsFound++;
                 }
@@ -121,7 +116,7 @@ namespace מוחקונטר
             Console.WriteLine("         # #   # #     #  #     # #   #  #  #   #");
             Console.WriteLine("         # #     #     #  #  #  # #   #  # #    #");
             Console.WriteLine("         # #     #     #  #  #  # #   #  #      #");
-            Console.WriteLine("1.3.3    # ####### #####  #  # #  #   #  # ######");
+            Console.WriteLine("1.3.4    # ####### #####  #  # #  #   #  # ######");
             Console.WriteLine("By L54                       #");
             Thread.Sleep(500);
             Console.ResetColor();
